@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmented Rotor SynRM Technology</title>
+    <style>
+        :root {
+            --primary-color: #0e4c92;
+            --secondary-color: #2a7de1;
+            --accent-color: #f39c12;
+            --dark-grey: #333;
+            --light-grey: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark-grey);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-grey);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-accent:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/800') center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        #about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: var(--dark-grey);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .problem-solution {
+            display: flex;
+            margin-top: 50px;
+            gap: 40px;
+        }
+        
+        .problem, .solution {
+            flex: 1;
+            background-color: var(--light-grey);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .problem h3, .solution h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Benefits Section */
+        #benefits {
+            padding: 100px 0;
+            background-color: var(--light-grey);
+        }
+        
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            margin-bottom: 20px;
+            font-size: 50px;
+            color: var(--primary-color);
+        }
+        
+        .benefit-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Specifications Section */
+        #specs {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .specs-table {
+            width: 100%;
+            margin-top: 50px;
+            border-collapse: collapse;
+        }
+        
+        .specs-table th, .specs-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .specs-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .specs-table tr:nth-child(even) {
+            background-color: var(--light-grey);
+        }
+        
+        .comparison-chart {
+            width: 100%;
+            height: 400px;
+            margin-top: 50px;
+            background-color: var(--light-grey);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Research Section */
+        #research {
+            padding: 100px 0;
+            background-color: var(--light-grey);
+        }
+        
+        .research-content {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+            align-items: center;
+        }
+        
+        .research-text {
+            flex: 1;
+        }
+        
+        .research-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .research-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        blockquote {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--white);
+            border-left: 5px solid var(--primary-color);
+            font-style: italic;
+        }
+        
+        /* Contact Section */
+        #contact {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 50px auto 0;
+            background-color: var(--light-grey);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        button[type="submit"] {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Team Section */
+        #team {
+            padding: 100px 0;
+            background-color: var(--light-grey);
+        }
+        
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .team-member h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .team-member p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--dark-grey);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-grey);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .problem-solution {
+                flex-direction: column;
+            }
+            
+            .research-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">SynRM Technology</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#specs">Specifications</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Revolutionary Segmented Rotor Design for Small-Diameter SynRM Motors</h1>
+                <p>Higher performance, simpler manufacturing, superior efficiency - redefining what's possible in small-scale motor technology.</p>
+                <a href="#contact" class="btn">Register Interest</a>
+                <a href="#about" class="btn btn-accent">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Breakthrough Technology</h2>
+                <p>Our innovative segmented rotor design overcomes the limitations of conventional flux-barrier designs in small-diameter synchronous reluctance motors.</p>
+            </div>
+            
+            <div class="problem-solution">
+                <div class="problem">
+                    <h3>The Challenge</h3>
+                    <p>Conventional flux-barrier designs face significant constraints when applied to small-diameter motors (below 30mm):</p>
+                    <ul>
+                        <li>Manufacturability issues with thin barriers</li>
+                        <li>Limited space for multiple flux barriers</li>
+                        <li>Reduced performance due to constrained geometries</li>
+                        <li>Complex production processes for small-scale components</li>
+                    </ul>
+                </div>
+                
+                <div class="solution">
+                    <h3>Our Solution</h3>
+                    <p>The segmented rotor topology offers a fundamentally different approach:</p>
+                    <ul>
+                        <li>Complete separation of rotor poles through modular segmentation</li>
+                        <li>Maximized reluctance variation without internal flux barriers</li>
+                        <li>Simplified manufacturing process</li>
+                        <li>Superior performance characteristics despite small diameter</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Advantages</h2>
+                <p>Our segmented rotor SynRM motor delivers exceptional performance with practical production benefits.</p>
+            </div>
+            
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">★</div>
+                    <h3>Superior Saliency Ratio</h3>
+                    <p>Achieves an impressive saliency ratio of 2.07, significantly outperforming conventional designs for small-diameter applications.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Excellent Torque Density</h3>
+                    <p>Delivers 2.2 × 10⁻⁵ N·m/mm³ torque density, comparable to larger machines despite the miniaturization challenges.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔧</div>
+                    <h3>Manufacturing Simplicity</h3>
+                    <p>Two-component structure simplifies production compared to complex flux-barrier designs, reducing costs and improving reliability.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌡️</div>
+                    <h3>Thermal Performance</h3>
+                    <p>Enhanced thermal management characteristics with lower iron losses, enabling operation in demanding environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section id="specs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Specifications</h2>
+                <p>Detailed performance metrics of our segmented rotor SynRM motor.</p>
+            </div>
+            
+            <table class="specs-table">
+                <tr>
+                    <th>Parameter</th>
+                    <th>Segmented Rotor SynRM</th>
+                    <th>Conventional Flux Barrier Design</th>
+                </tr>
+                <tr>
+                    <td>Saliency Ratio (Ld/Lq)</td>
+                    <td>2.07</td>
+                    <td>1.44-1.80</td>
+                </tr>
+                <tr>
+                    <td>Torque Density</td>
+                    <td>2.2 × 10⁻⁵ N·m/mm³</td>
+                    <td>0.97-1.7 × 10⁻⁵ N·m/mm³</td>
+                </tr>
+                <tr>
+                    <td>Maximum Torque (50A)</td>
+                    <td>0.78 N·m</td>
+                    <td>0.34-0.62 N·m</td>
+                </tr>
+                <tr>
+                    <td>Power Factor (5000 r/min)</td>
+                    <td>0.63</td>
+                    <td>0.56-0.72</td>
+                </tr>
+                <tr>
+                    <td>Efficiency (5000 r/min)</td>
+                    <td>45.75%</td>
+                    <td>23.72-40.27%</td>
+                </tr>
+                <tr>
+                    <td>Rotor Diameter</td>
+                    <td>25.24 mm</td>
+                    <td>25.24 mm</td>
+                </tr>
+                <tr>
+                    <td>Structure</td>
+                    <td>Segmented with aluminum holder</td>
+                    <td>Integrated flux barriers</td>
+                </tr>
+            </table>
+            
+            <div class="comparison-chart">
+                <!-- Chart would be inserted here in a real implementation -->
+                <p>Performance Comparison Chart</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Validation</h2>
+                <p>Our technology is backed by rigorous research and experimental validation.</p>
+            </div>
+            
+            <div class="research-content">
+                <div class="research-text">
+                    <h3>Peer-Reviewed Research</h3>
+                    <p>Our innovative approach has been validated through comprehensive research published in the journal of Electrical Engineering (2025). The study demonstrates that conventional flux-barrier design rules become less effective at small scales and presents our segmented rotor topology as a viable alternative.</p>
+                    
+                    <blockquote>
+                        "The segmented rotor achieves superior performance with a saliency ratio of 2.07 and torque density of 2.2 × 10⁻⁵ N·m/mm³, comparable to larger machines reported in recent literature."
+                    </blockquote>
+                    
+                    <p>Mechanical analysis confirmed structural integrity under high-speed operation, with maximum stress and deformation values well within acceptable limits. Experimental validation largely corroborated simulation results.</p>
+                </div>
+                
+                <div class="research-image">
+                    <img src="/api/placeholder/500/300" alt="Research validation image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Register Your Interest</h2>
+                <p>Learn more about our segmented rotor SynRM technology and how it can benefit your applications.</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">Interest Level</label>
+                        <select id="interest" name="interest">
+                            <option value="information">Just seeking information</option>
+                            <option value="potential">Potential future application</option>
+                            <option value="immediate">Immediate application interest</option>
+                            <option value="partnership">Partnership/collaboration interest</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Comments/Questions</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Team</h2>
+                <p>Meet the engineers and researchers behind our innovative motor technology.</p>
+            </div>
+            
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Team Member 1">
+                    <h3>Dr. M. A. H. Rasid</h3>
+                    <p>Lead Researcher</p>
+                    <p>Expert in electrical machine design with focus on synchronous reluctance motors.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Team Member 2">
+                    <h3>Prof. Vincent Lanfranchi</h3>
+                    <p>Senior Engineer</p>
+                    <p>Specializing in electromagnetic design and optimization for small-scale applications.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="/api/placeholder/150/150" alt="Team Member 3">
+                    <h3>Dr. Alejandro Ospina</h3>
+                    <p>Manufacturing Specialist</p>
+                    <p>Expertise in production methods for precision electrical components.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">SynRM Technology</div>
+            
+            <ul class="footer-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#specs">Specifications</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <div class="social-links">
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">YouTube</a>
+            </div>
+            
+            <p class="copyright">© 2025 SynRM Technology. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form validation and submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally implement form submission logic
+            // For demonstration, we'll just show an alert
+            alert('Thank you for your interest! We will contact you soon.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
