@@ -670,7 +670,7 @@
             </div>
             
             <div class="form-container">
-                <form id="contact-form">
+                <form id="contact-form" action="https://formspree.io/f/mrbkkyjd" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -705,6 +705,10 @@
                         <label for="message">Comments/Questions</label>
                         <textarea id="message" name="message"></textarea>
                     </div>
+
+                    <!-- ADD THESE TWO LINES HERE -->
+                    <input type="hidden" name="_subject" value="New SynRM Technology Interest Registration">
+                    <input type="hidden" name="_next" value="https://azrihizami.github.io/synrm-landing-page/">
                     
                     <button type="submit">Submit</button>
                 </form>
