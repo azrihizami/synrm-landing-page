@@ -616,50 +616,76 @@
     </section>
 
     <!-- Research Section -->
-    <section id="research">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research Validation</h2>
-                <p>Our technology is backed by rigorous research and experimental validation.</p>
+ <!-- Improved Research Section with Better Margins -->
+<section id="research">
+    <div class="container">
+        <div class="section-header">
+            <h2>Research Validation</h2>
+            <p>Our technology is backed by rigorous research and experimental validation.</p>
 
-                <div class="research-institutions" style="margin-top: 30px;">
-                    <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
-                        <div style="text-align: center;">
-                            <img src="images/Logo UMPSA.png" alt="Universiti Malaysia Pahang al-Sultan Abdullah" style="height: 70px; margin-bottom: 10px;">
-                            <p style="font-size: 12px; color: #666;">Universiti Malaysia Pahang al-Sultan Abdullah</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <img src="images/UTC.png" alt="Université de Technologie de Compiègne" style="height: 70px; margin-bottom: 10px;">
-                            <p style="font-size: 12px; color: #666;">Université de Technologie de Compiègne</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <img src="images/MotorXP.png" alt="MotorXP LLC US" style="height: 70px; margin-bottom: 10px;">
-                            <p style="font-size: 12px; color: #666;">MotorXP LLC US</p>
-                        </div>
+            <div class="research-institutions" style="margin-top: 30px;">
+                <h4 style="margin-bottom: 20px; color: #666;">Research Partners</h4>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <img src="images/Logo UMPSA.png" alt="Universiti Malaysia Pahang al-Sultan Abdullah" style="height: 70px; margin-bottom: 10px;">
+                        <p style="font-size: 12px; color: #666;">Universiti Malaysia Pahang al-Sultan Abdullah</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/UTC.png" alt="Université de Technologie de Compiègne" style="height: 70px; margin-bottom: 10px;">
+                        <p style="font-size: 12px; color: #666;">Université de Technologie de Compiègne</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="images/MotorXP.png" alt="MotorXP LLC US" style="height: 70px; margin-bottom: 10px;">
+                        <p style="font-size: 12px; color: #666;">MotorXP LLC US</p>
                     </div>
                 </div>
             </div>
-                
-            </div>
-            
-            <div class="research-content">
-                <div class="research-text">
-                    <h3>Peer-Reviewed Research</h3>
-                    <p>Our innovative approach has been validated through comprehensive research published in the journal of Electrical Engineering (2025). The study demonstrates that conventional flux-barrier design rules become less effective at small scales and presents our segmented rotor topology as a viable alternative.</p>
+        </div>
+        
+        <!-- Improved research content with better spacing and margins -->
+        <div style="max-width: 1000px; margin: 50px auto 0; padding: 0 20px;">
+            <div class="research-content" style="display: flex; gap: 40px; align-items: flex-start;">
+                <div class="research-text" style="flex: 1;">
+                    <h3 style="font-size: 28px; color: var(--primary-color); margin-bottom: 20px;">Peer-Reviewed Research</h3>
+                    <p style="font-size: 16px; line-height: 1.8; margin-bottom: 25px;">Our innovative approach has been validated through comprehensive research published in the journal of Electrical Engineering (2025). The study demonstrates that conventional flux-barrier design rules become less effective at small scales and presents our segmented rotor topology as a viable alternative.</p>
                     
-                    <blockquote>
+                    <blockquote style="margin: 30px 0; padding: 25px; background-color: var(--white); border-left: 5px solid var(--primary-color); font-style: italic; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
                         "The segmented rotor achieves superior performance with a saliency ratio of 2.07 and torque density of 2.2 × 10⁻⁵ N·m/mm³, comparable to larger machines reported in recent literature."
                     </blockquote>
                     
-                    <p>Mechanical analysis confirmed structural integrity under high-speed operation, with maximum stress and deformation values well within acceptable limits. Experimental validation largely corroborated simulation results.</p>
+                    <p style="font-size: 16px; line-height: 1.8;">Mechanical analysis confirmed structural integrity under high-speed operation, with maximum stress and deformation values well within acceptable limits. Experimental validation largely corroborated simulation results.</p>
                 </div>
                 
-                <div class="research-image">
-                    <img src="images/EE Springer.jpg" alt="Segmented rotor in comparison others">
+                <div class="research-image" style="flex: 1; text-align: center; padding-left: 20px;">
+                    <img src="images/EE Springer.jpg" alt="Segmented rotor in comparison others" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+/* Enhanced Research Section Responsive Design */
+@media (max-width: 768px) {
+    #research .research-content {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    #research .research-image {
+        padding-left: 0 !important;
+    }
+    
+    #research h3 {
+        font-size: 24px !important;
+    }
+    
+    #research blockquote {
+        margin: 20px 0 !important;
+        padding: 20px !important;
+    }
+}
+</style>
 
     <!-- Contact Section -->
     <section id="contact">
