@@ -670,7 +670,7 @@
             </div>
             
             <div class="form-container">
-                <form id="contact-form" action="https://formspree.io/f/mrbkkyjd" method="POST">
+                <form action="https://formspree.io/f/mrbkkyjd" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -781,16 +781,7 @@
     </footer>
 
     <script>
-        // Simple form validation and submission handling
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would normally implement form submission logic
-            // For demonstration, we'll just show an alert
-            alert('Thank you for your interest! We will contact you soon.');
-            this.reset();
-        });
-        
+               
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -801,6 +792,12 @@
                 });
             });
         });
+
+        // Optional: Add loading state
+        document.querySelector('form[action*="formspree"]')?.addEventListener('submit', function() {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
     </script>
 </body>
 </html>
