@@ -443,6 +443,42 @@
                 display: none;
             }
         }
+
+        /* Hero Button Layout - Add this to your existing CSS */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-resources {
+            background-color: #27ae60;
+            border: 2px solid #27ae60;
+        }
+
+        .btn-resources:hover {
+            background-color: #2ecc71;
+            border-color: #2ecc71;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Responsive design for hero buttons */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+    
+            .hero-buttons .btn {
+                text-align: center;
+                   width: 100%;
+                max-width: 280px;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -467,14 +503,15 @@
 
     <!-- Hero Section -->
     <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Revolutionary Segmented Rotor Design for Small-Diameter SynRM Motors</h1>
-                <p>Higher performance, simpler manufacturing, superior efficiency - redefining what's possible in small-scale motor technology.</p>
-                <a href="#contact" class="btn">Register Interest</a>
-                <a href="#about" class="btn btn-accent">Learn More</a>
-
-            </div>
+        <div class="hero-content">
+      <h1>Revolutionary Segmented Rotor Design for Small-Diameter SynRM Motors</h1>
+      <p>Higher performance, simpler manufacturing, superior efficiency - redefining what's possible in small-scale motor technology.</p>
+      <div class="hero-buttons">
+          <a href="#contact" class="btn">Register Interest</a>
+          <a href="#about" class="btn btn-accent">Learn More</a>
+          <a href="resources.html" class="btn btn-resources">View Resources</a>
+      </div>
+  </div>
         </div>
     </section>
 
