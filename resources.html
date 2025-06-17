@@ -325,37 +325,71 @@
             <!-- Page Header -->
             <div class="page-header">
                 <h1>Technical Resources</h1>
-                <p>Access comprehensive documentation, technical reports, and partnership agreements for our innovative segmented rotor SynRM technology.</p>
+                <p>Access comprehensive documentation, published research, grant information, and partnership agreements for our innovative segmented rotor SynRM technology.</p>
             </div>
 
-            <!-- Technical Report Section -->
+            <!-- Published Paper Section -->
             <div class="resource-section">
                 <div class="section-header">
-                    <h2>📋 Technical Report</h2>
-                    <p>Comprehensive technical analysis and performance specifications</p>
+                    <h2>📄 Published Paper</h2>
+                    <p>Peer-reviewed research publication on segmented rotor SynRM technology</p>
                 </div>
                 <div class="pdf-container">
                     <iframe 
-                        src="pdfs/technical-report.pdf" 
+                        src="pdfs/published-paper.pdf" 
                         class="pdf-viewer"
-                        title="Technical Report"
+                        title="Published Paper"
                         onload="this.style.display='block'"
-                        onerror="showFallback(this)">
+                        onerror="showFallback(this, 'published')">
                     </iframe>
                     
-                    <div class="pdf-fallback" id="technical-fallback" style="display: none;">
-                        <h3>📄 Technical Report</h3>
+                    <div class="pdf-fallback" id="published-fallback" style="display: none;">
+                        <h3>📄 Published Paper</h3>
                         <p>The PDF viewer is not available in your browser. Please use the download button below to access the document.</p>
-                        <a href="pdfs/technical-report.pdf" class="btn-pdf" download>
-                            💾 Download Technical Report
+                        <a href="pdfs/Published Version - preview.pdf" class="btn-pdf" download>
+                            💾 Download Published Paper
                         </a>
                     </div>
                     
                     <div class="pdf-controls">
-                        <a href="pdfs/technical-report.pdf" target="_blank" class="btn-pdf primary">
+                        <a href="pdfs/Published Version - preview.pdf" target="_blank" class="btn-pdf primary">
                             🔗 Open in New Tab
                         </a>
-                        <a href="pdfs/technical-report.pdf" download class="btn-pdf">
+                        <a href="pdfs/Published Version - preview.pdf" download class="btn-pdf">
+                            💾 Download PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grant Received Section -->
+            <div class="resource-section">
+                <div class="section-header">
+                    <h2>💰 Grant Received</h2>
+                    <p>Research funding and grant documentation for the project</p>
+                </div>
+                <div class="pdf-container">
+                    <iframe 
+                        src="pdfs/grant-received.pdf" 
+                        class="pdf-viewer"
+                        title="Grant Documentation"
+                        onload="this.style.display='block'"
+                        onerror="showFallback(this, 'grant')">
+                    </iframe>
+                    
+                    <div class="pdf-fallback" id="grant-fallback" style="display: none;">
+                        <h3>💰 Grant Received</h3>
+                        <p>The PDF viewer is not available in your browser. Please use the download button below to access the document.</p>
+                        <a href="pdfs/PDU233210 SURAT KELULUSAN.pdf" class="btn-pdf" download>
+                            💾 Download Grant Documentation
+                        </a>
+                    </div>
+                    
+                    <div class="pdf-controls">
+                        <a href="pdfs/PDU233210 SURAT KELULUSAN.pdf" target="_blank" class="btn-pdf primary">
+                            🔗 Open in New Tab
+                        </a>
+                        <a href="pdfs/PDU233210 SURAT KELULUSAN.pdf" download class="btn-pdf">
                             💾 Download PDF
                         </a>
                     </div>
@@ -380,16 +414,16 @@
                     <div class="pdf-fallback" id="mou-fallback" style="display: none;">
                         <h3>📜 MoU & Letters of Intent</h3>
                         <p>The PDF viewer is not available in your browser. Please use the download button below to access the document.</p>
-                        <a href="pdfs/mou-loi-showcase.pdf" class="btn-pdf" download>
+                        <a href="pdfs/LOI Research UMP-Vibratec NFA signed.pdf" class="btn-pdf" download>
                             💾 Download MoU & LoI Documents
                         </a>
                     </div>
                     
                     <div class="pdf-controls">
-                        <a href="pdfs/mou-loi-showcase.pdf" target="_blank" class="btn-pdf primary">
+                        <a href="pdfs/LOI Research UMP-Vibratec NFA signed.pdf" target="_blank" class="btn-pdf primary">
                             🔗 Open in New Tab
                         </a>
-                        <a href="pdfs/mou-loi-showcase.pdf" download class="btn-pdf">
+                        <a href="pdfs/LOI Research UMP-Vibratec NFA signed.pdf" download class="btn-pdf">
                             💾 Download PDF
                         </a>
                     </div>
@@ -426,9 +460,23 @@
 
     <script>
         // Function to show fallback when PDF fails to load
-        function showFallback(iframe, type = 'technical') {
+        function showFallback(iframe, type = 'published') {
             iframe.style.display = 'none';
-            const fallbackId = type === 'mou' ? 'mou-fallback' : 'technical-fallback';
+            let fallbackId;
+            
+            switch(type) {
+                case 'mou':
+                    fallbackId = 'mou-fallback';
+                    break;
+                case 'grant':
+                    fallbackId = 'grant-fallback';
+                    break;
+                case 'published':
+                default:
+                    fallbackId = 'published-fallback';
+                    break;
+            }
+            
             document.getElementById(fallbackId).style.display = 'block';
         }
 
